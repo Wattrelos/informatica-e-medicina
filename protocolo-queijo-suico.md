@@ -33,7 +33,7 @@ Embora o Modelo do Queijo Suíço tenha se popularizado mundialmente por meio da
 ### 1.3 A Chegada à Medicina e à Segurança do Paciente (1999–2013)
 
 - **O ponto de inflexão (*To Err Is Human* e *The BMJ*):** Em 1999, o *Institute of Medicine* (IOM) dos Estados Unidos publicou o relatório *To Err Is Human: Building a Safer Health System*, expondo a magnitude das mortes evitáveis por falhas assistenciais. Logo depois, em março de 2000, James Reason publicou na revista *The BMJ* o artigo clássico **"Human error: models and management"**, traduzindo o modelo das fatias de queijo diretamente para médicos e gestores hospitalares.
-- **Da teoria à prática assistencial:** A saúde passou a incorporar sistematicamente ferramentas de setores de alta confiabilidade (*High-Reliability Organizations — HROs*), como a Lista de Verificação de Segurança Cirúrgica da Organização Mundial da Saúde (**WHO Surgical Safety Checklist**, 2008) e sistemas confidenciais/não punitivos de notificação de incidentes e *near misses* (quase-erros).
+- **Da teoria à prática assistencial:** A saúde passou a incorporar sistematicamente ferramentas de setores de alta confiabilidade (*High-Reliability Organizations - HROs*), como a Lista de Verificação de Segurança Cirúrgica da Organização Mundial da Saúde (**WHO Surgical Safety Checklist**, 2008) e sistemas confidenciais/não punitivos de notificação de incidentes e *near misses* (quase-erros).
 - **Marco regulatório no Brasil:** Em 2013, o Ministério da Saúde e a **Anvisa** instituíram o Programa Nacional de Segurança do Paciente (**PNSP**), por meio da **RDC nº 36/2013** e da **Portaria MS/GM nº 2.095/2013**, tornando obrigatórios os Núcleos de Segurança do Paciente (NSP) e protocolos nacionais como o de **Segurança na Prescrição, Uso e Administração de Medicamentos**.
 
 ---
@@ -82,7 +82,7 @@ flowchart LR
 
 4. **O Sistema Institucional e Tecnológico (Camada Transversal)**
    - **Papel da barreira:** Envolver e sustentar as etapas humanas por meio de bloqueios físicos e digitais automatizados.
-   - **Mecanismos de proteção:** Prontuário Eletrônico do Paciente (**PEP**) com prescrição estruturada (*CPOE*) e suporte à decisão clínica, administração assistida por código de barras à beira-leito (**BCMA** — conferindo pulseira do paciente + embalagem unitarizada), bombas de infusão inteligentes (*smart pumps* com biblioteca de fármacos e limites de dose), dispensários eletrônicos automatizados e dupla checagem independente obrigatória para MPPs.
+   - **Mecanismos de proteção:** Prontuário Eletrônico do Paciente (**PEP**) com prescrição estruturada (*CPOE*) e suporte à decisão clínica, administração assistida por código de barras à beira-leito (**BCMA** , conferindo pulseira do paciente + embalagem unitarizada), bombas de infusão inteligentes (*smart pumps* com biblioteca de fármacos e limites de dose), dispensários eletrônicos automatizados e dupla checagem independente obrigatória para MPPs.
    - **Vulnerabilidades ("buracos") do sistema:** **Fadiga de alertas** (excesso de avisos irrelevantes levando à dessensibilização e cliques automáticos), indisponibilidade de rede/energia sem plano de contingência, interfaces com baixa usabilidade (*UX*) e **cultura organizacional punitiva** (que silencia incidentes e impede a correção das causas latentes).
 
 ### 2.2 A Mudança de Mentalidade: Abordagem da Pessoa vs. Abordagem Sistêmica
@@ -107,13 +107,13 @@ Na engenharia de software crítica, o Modelo do Queijo Suíço fundamenta a **De
 3. **Fatia 3 — Revisão por Pares (*Code Review*):** Equivalente à dupla checagem clínica independente. Outro desenvolvedor avalia o *Pull Request* buscando falhas lógicas, condições de corrida, brechas de segurança e pontos cegos do autor.
 4. **Fatia 4 — Esteira de CI/CD e Segurança (*DevSecOps*):** *Pipelines* automatizados que bloqueiam o *merge* ou *deploy* mediante falhas em testes ou detecção de vulnerabilidades por **SAST** (*Static Application Security Testing*), **DAST** (*Dynamic Application Security Testing*), **SCA** (análise de dependências/CVEs) e varredura de segredos.
 5. **Fatia 5 — Implantação Progressiva (*Progressive Delivery*):** Adoção de *Canary Releases* (exposição inicial a 1%–5% do tráfego), *Blue-Green Deployment* e *Feature Flags*, permitindo isolamento de falhas (*blast radius* reduzido) e *rollback* instantâneo.
-6. **Fatia 6 — Observabilidade e Resposta a Incidentes:** Logs estruturados (com *correlation/trace IDs*), métricas de negócio e infraestrutura, rastreamento distribuído, definição de **SLIs/SLOs** e alertas acionáveis — detectando desvios que tenham atravessado todas as camadas anteriores antes mesmo da notificação pelo usuário.
+6. **Fatia 6 — Observabilidade e Resposta a Incidentes:** Logs estruturados (com *correlation/trace IDs*), métricas de negócio e infraestrutura, rastreamento distribuído, definição de **SLIs/SLOs** e alertas acionáveis, detectando desvios que tenham atravessado todas as camadas anteriores antes mesmo da notificação pelo usuário.
 
 ### 3.2 Práticas Convergentes entre Setores de Alto Risco e Software
 
 | Prática / Método | Origem Histórica | Aplicação no Desenvolvimento de Software |
 | :--- | :--- | :--- |
-| **Blameless Post-Mortem** (Análise sem culpa) | Aviação (CRM / sistemas como o ASRS) e Cultura Justa na Medicina; formalizado em TI por **John Allspaw (Etsy, 2012)** e SRE | Após um incidente em produção, a equipe reconstrói a linha do tempo para identificar quais barreiras falharam e criar ações corretivas sistêmicas — sem punir quem executou o *deploy*. |
+| **Blameless Post-Mortem** (Análise sem culpa) | Aviação (CRM / sistemas como o ASRS) e Cultura Justa na Medicina; formalizado em TI por **John Allspaw (Etsy, 2012)** e SRE | Após um incidente em produção, a equipe reconstrói a linha do tempo para identificar quais barreiras falharam e criar ações corretivas sistêmicas, sem punir quem executou o *deploy*. |
 | **Checklists Operacionais** | Aviação (cabine pré-voo) e Medicina (*WHO Surgical Safety Checklist*, 2008) | Roteiros objetivos e verificáveis para procedimentos raros ou de alto risco, como migrações destrutivas de banco de dados, viradas de chave e resposta a incidentes sob estresse. |
 | **Engenharia do Caos** (*Chaos Engineering*) | **Netflix (~2010–2011)** com o *Chaos Monkey* na migração para nuvem | Injeção controlada de falhas em ambientes reais ou de pré-produção (queda de réplicas, latência de rede, perda de dependências) para expor "buracos" latentes antes de crises reais. |
 | **Princípio do Menor Privilégio** (*Least Privilege*) | Formalizado na computação por **Saltzer & Schroeder (1975)** (*Protection of Information in Computer Systems*), inspirado na compartimentalização militar/nuclear | Restringir usuários, microsserviços, tokens e conexões de banco ao conjunto mínimo de permissões necessárias, isolando o estrago caso uma credencial seja comprometida. |
@@ -130,7 +130,7 @@ Na engenharia de software crítica, o Modelo do Queijo Suíço fundamenta a **De
 
 ### 3.4 Adoção Incremental: Evitando a Fadiga de Processos
 
-Tentar implantar todas as barreiras simultaneamente sem maturidade operacional produz burocracia excessiva, lentidão e **"fadiga de processos"** — cenário em que a própria equipe cria atalhos para contornar controles rígidos (*workarounds*, criando novos buracos latentes). A abordagem pragmática recomendada consiste em:
+Tentar implantar todas as barreiras simultaneamente sem maturidade operacional produz burocracia excessiva, lentidão e **"fadiga de processos"**, cenário em que a própria equipe cria atalhos para contornar controles rígidos (*workarounds*, criando novos buracos latentes). A abordagem pragmática recomendada consiste em:
 
 1. Identificar o incidente ou quase-erro mais crítico recente;
 2. Conduzir uma análise sistêmica sem culpa;
@@ -153,9 +153,9 @@ Em sistemas farmacêuticos, **consistência e auditabilidade precedem a velocida
 
 ### 4.2 UX Defensiva: Fechando os "Buracos" Humanos na Ponta
 
-Profissionais de farmácia e enfermagem operam sob alta carga cognitiva e pressão de tempo. A interface deve ser projetada para tornar o caminho seguro o mais fácil de executar — e o caminho inseguro bloqueado ou friccionado.
+Profissionais de farmácia e enfermagem operam sob alta carga cognitiva e pressão de tempo. A interface deve ser projetada para tornar o caminho seguro o mais fácil de executar e o caminho inseguro bloqueado ou friccionado.
 
-- **Leitura Obrigatória de Código de Barras (GS1 DataMatrix):** Exija a bipagem da embalagem na entrada e na dispensação. O código bidimensional **GS1 DataMatrix** codifica, via Identificadores de Aplicação (AIs), o produto (**AI 01 — GTIN**), o lote (**AI 10**), a data de validade (**AI 17**) e, quando serializado, o número de série (**AI 21**), eliminando erros de digitação manual.
+- **Leitura Obrigatória de Código de Barras (GS1 DataMatrix):** Exija a bipagem da embalagem na entrada e na dispensação. O código bidimensional **GS1 DataMatrix** codifica, via Identificadores de Aplicação (AIs), o produto (**AI 01 - GTIN**), o lote (**AI 10**), a data de validade (**AI 17**) e, quando serializado, o número de série (**AI 21**), eliminando erros de digitação manual.
   - *Contexto regulatório no Brasil:* Embora a **Lei nº 14.338/2022** (que instituiu a bula digital via QR Code) tenha revogado o modelo centralizado anterior do SNCM previsto na Lei nº 11.903/2009, o padrão **GS1 DataMatrix** permanece consolidado na indústria farmacêutica e nos hospitais como referência técnica para logística segura, controle de validade, dose unitária e atendimento aos mapas de rastreio e distribuição.
 - **Destaque Visual para Medicamentos LASA e MPP (Alta Vigilância):**
   - Siga as listas e boletins do **ISMP Brasil** (*Instituto para Práticas Seguras no Uso de Medicamentos*) para destacar **Medicamentos Potencialmente Perigosos (MPP)** e pares **LASA** com etiquetas visuais diferenciadas e tipografia **Tall Man Lettering** (ex.: `dopaMINA` vs. `dobuTAMINA`; `predNIZONA` vs. `predNISOLONA`).
@@ -164,7 +164,7 @@ Profissionais de farmácia e enfermagem operam sob alta carga cognitiva e press�
   - *Hard Stop (Bloqueio rígido):* Lote vencido, lote interditado/quarentena, estoque insuficiente, alergia grave documentada ao princípio ativo ou dose acima do teto letal;
   - *Soft Stop (Alerta com justificativa estruturada):* Interação medicamentosa moderada ou dose fora da faixa usual (exige seleção de justificativa clínica e registro em log);
   - *Passivo / Informativo:* Avisos operacionais sem interrupção do fluxo de tela.
-- **Algoritmo FEFO (*First Expired, First Out*):** Na separação, o sistema deve ordenar e pré-selecionar automaticamente o lote válido com vencimento mais próximo, evitando desperdício financeiro e risco de vencimento em estoque — observando, contudo, se a validade do lote cobre integralmente o período de tratamento dispensado ao paciente.
+- **Algoritmo FEFO (*First Expired, First Out*):** Na separação, o sistema deve ordenar e pré-selecionar automaticamente o lote válido com vencimento mais próximo, evitando desperdício financeiro e risco de vencimento em estoque, observando, contudo, se a validade do lote cobre integralmente o período de tratamento dispensado ao paciente.
 
 ### 4.3 Resiliência, Contingência e Casos de Borda (*Edge Cases*)
 
@@ -199,7 +199,7 @@ Contornar isso exigiria transações distribuídas complexas (*2PC*) ou padrões
 
 É possível unir rigor referencial e flexibilidade documental dentro da mesma transação ACID no PostgreSQL:
 
-1. **Regras e Perguntas Reutilizáveis (Modelo Relacional Clássico):** Perguntas clínicas recorrentes (ex.: *"Paciente gestante ou com suspeita de gravidez?"*, *"Paciente menor de 2 anos?"*) ficam normalizadas em uma tabela `regras_clinicas`, vinculadas a medicamentos individuais (`medicamento_regras`) ou herdadas por **classe terapêutica** (ex.: usando a classificação **ATC** — *Anatomical Therapeutic Chemical* — da OMS, para que todo anti-inflamatório não esteroidal herde automaticamente o alerta de risco gestacional).
+1. **Regras e Perguntas Reutilizáveis (Modelo Relacional Clássico):** Perguntas clínicas recorrentes (ex.: *"Paciente gestante ou com suspeita de gravidez?"*, *"Paciente menor de 2 anos?"*) ficam normalizadas em uma tabela `regras_clinicas`, vinculadas a medicamentos individuais (`medicamento_regras`) ou herdadas por **classe terapêutica** (ex.: usando a classificação **ATC** (*Anatomical Therapeutic Chemical* da OMS), para que todo anti-inflamatório não esteroidal herde automaticamente o alerta de risco gestacional).
 2. **Perguntas Específicas e Respostas Dinâmicas (`JSONB` + Índice `GIN`):** Requisitos muito particulares de um princípio ativo ou formulários variáveis são armazenados em coluna `JSONB` indexada por `GIN`, mantendo consultas rápidas por atributos internos.
 3. **Imutabilidade do Registro (*Snapshot* Legal e Clínico):** No momento exato em que o farmacêutico finaliza a dispensação, o sistema grava na mesma transação uma **cópia imutável (`snapshot` em `JSONB`)** contendo: o identificador e versão da regra clínica aplicada, o texto exato exibido na tela, as respostas fornecidas e o profissional responsável. Se a regra clínica for editada meses depois, a evidência legal do que foi verificado naquela data permanece inalterada.
 
@@ -280,8 +280,8 @@ Evite modelar verificações de alergia como perguntas manuais em texto livre (e
 - **Normalização por Vocabulário Controlado (DCB e ATC):** Cadastre os **Princípios Ativos** utilizando a **DCB** (*Denominação Comum Brasileira*, mantida pela Anvisa) e vincule-os às apresentações comerciais (medicamentos de referência, genéricos e similares) e à árvore terapêutica/química **ATC**.
 - **Geração Dinâmica de Alertas:** Ao dispensar qualquer marca comercial, o sistema inspeciona os princípios ativos daquela formulação (incluindo medicamentos compostos) e cruza automaticamente com o histórico estruturado de alergias do paciente.
 - **Alergia Intra-Classe vs. Reatividade Cruzada Real:**
-  - *Alergia intra-classe (mesmo grupo estrutural):* Se um paciente possui alergia registrada à **penicilina** (como benzilpenicilina), o sistema deve bloquear ou emitir alerta crítico na tentativa de dispensar **amoxicilina** ou **ampicilina**, pois estas são aminopenicilinas — pertencentes à **mesma classe das penicilinas**.
-  - *Reatividade cruzada (grupos distintos com similaridade molecular):* Com uma tabela explícita de grupos químicos e cadeias laterais (*side chains*), o sistema consegue modelar **reatividade cruzada** de forma clinicamente precisa — por exemplo, diferenciando o baixo risco geral entre penicilinas e cefalosporinas (~1% a 2%) do risco específico elevado entre **amoxicilina** e cefalosporinas que compartilham cadeia lateral R1 semelhante (como **cefalexina** e **cefaclor**), enquanto preserva alternativas seguras com cadeias laterais distintas (como **cefazolina** ou cefalosporinas de 3ª/4ª geração, salvo histórico de reações graves como síndrome de Stevens-Johnson).
+  - *Alergia intra-classe (mesmo grupo estrutural):* Se um paciente possui alergia registrada à **penicilina** (como benzilpenicilina), o sistema deve bloquear ou emitir alerta crítico na tentativa de dispensar **amoxicilina** ou **ampicilina**, pois estas são aminopenicilinas, pertencentes à **mesma classe das penicilinas**.
+  - *Reatividade cruzada (grupos distintos com similaridade molecular):* Com uma tabela explícita de grupos químicos e cadeias laterais (*side chains*), o sistema consegue modelar **reatividade cruzada** de forma clinicamente precisa, por exemplo, diferenciando o baixo risco geral entre penicilinas e cefalosporinas (~1% a 2%) do risco específico elevado entre **amoxicilina** e cefalosporinas que compartilham cadeia lateral R1 semelhante (como **cefalexina** e **cefaclor**), enquanto preserva alternativas seguras com cadeias laterais distintas (como **cefazolina** ou cefalosporinas de 3ª/4ª geração, salvo histórico de reações graves como síndrome de Stevens-Johnson).
 
 ### 5.4 Quando o NoSQL (ou Armazenamento Documental Dedicado) Faria Sentido?
 
@@ -302,8 +302,8 @@ Mesmo nesse cenário, o núcleo de **estoque, rastreabilidade de lotes e dispens
 5. **ICAO — International Civil Aviation Organization** (1993). *Human Factors Digest No. 7: Investigation of Human Factors in Accidents and Incidents* (Circular 240-AN/144) e *Human Factors Digest No. 10: Human Factors, Management and Organization* (Circular 247-AN/148).
 6. **Kohn, L. T., Corrigan, J. M., & Donaldson, M. S. (Eds.) / Institute of Medicine (IOM)** (1999). *To Err Is Human: Building a Safer Health System*. Washington, DC: National Academies Press.
 7. **WHO — World Health Organization** (2008). *WHO Surgical Safety Checklist and Implementation Manual*.
-8. **Brasil — Ministério da Saúde / Anvisa / Fiocruz** (2013). *Protocolo de Segurança na Prescrição, Uso e Administração de Medicamentos*; **Portaria MS/GM nº 2.095/2013** e **RDC Anvisa nº 36/2013** (Programa Nacional de Segurança do Paciente — PNSP).
+8. **Brasil — Ministério da Saúde / Anvisa / Fiocruz** (2013). *Protocolo de Segurança na Prescrição, Uso e Administração de Medicamentos*; **Portaria MS/GM nº 2.095/2013** e **RDC Anvisa nº 36/2013** (Programa Nacional de Segurança do Paciente - PNSP).
 9. **ISMP Brasil — Instituto para Práticas Seguras no Uso de Medicamentos**. *Listas de Medicamentos Potencialmente Perigosos (MPP)* e recomendações sobre uso de *Tall Man Lettering* e medicamentos *LASA*.
 10. **Brasil** (1998; 2022). **Portaria SVS/MS nº 344/1998** (Regulamento Técnico sobre substâncias e medicamentos sujeitos a controle especial) e **Lei nº 14.338/2022** (dispõe sobre a bula digital e altera dispositivos da Lei nº 11.903/2009 relativos ao SNCM).
 11. **Saltzer, J. H., & Schroeder, M. D.** (1975). *The Protection of Information in Computer Systems*. *Proceedings of the IEEE*, 63(9), 1278–1308.
-12. **Allspaw, J.** (2012). *Blameless PostMortems and a Just Culture*. Etsy — *Code as Craft*.
+12. **Allspaw, J.** (2012). *Blameless PostMortems and a Just Culture*. Etsy: *Code as Craft*.
